@@ -1,11 +1,26 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <Select2 :options="options" v-model="selected"/>
-        <pre class="code">
-            <p v-text="selected"></p>
+  <div>
+    <!-- Single -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <Select2 :options="options" v-model="single_selected"/>
+          <pre class="code">
+            <p v-text="single_selected"></p>
         </pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Multiple -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <Select2 :options="options" v-model="multiple_selected" :multiple="true"/>
+          <pre class="code">
+            <p v-text="multiple_selected"></p>
+        </pre>
+        </div>
       </div>
     </div>
   </div>
@@ -21,7 +36,8 @@ export default {
   },
   data() {
     return {
-      selected: "1",
+      single_selected: "1",
+      multiple_selected: [1],
       options: {
         1: "VueJS",
         2: "JavaScript",
